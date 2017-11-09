@@ -159,7 +159,7 @@ ld-version = $(shell $(LD) --version | $(srctree)/scripts/ld-version.sh)
 
 # ld-ifversion
 # Usage:  $(call ld-ifversion, -ge, 22252, y)
-ld-ifversion = $(shell [ $(ld-version) $(1) $(2) ] && echo $(3)
+ld-ifversion = $(shell [ $(ld-version) $(1) $(2) ] && echo $(3))
 
 ######
 
