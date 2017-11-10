@@ -1,19 +1,22 @@
 ui_print("FireKernel for Motorola G3");
 
-assert(getprop("ro.product.device") == "surnia" ||
-       getprop("ro.product.device") == "surnia_umts" ||
-       getprop("ro.product.device") == "surnia_uds" ||
-       getprop("ro.product.device") == "surnia_udstv" ||
-       getprop("ro.product.device") == "osprey" ||
-       getprop("ro.product.device") == "osprey_umts" ||
-       getprop("ro.product.device") == "osprey_u2" ||
-       getprop("ro.product.device") == "osprey_ud2" ||
-       getprop("ro.product.device") == "osprey_uds" ||
-       getprop("ro.product.device") == "osprey_cdma" ||
-       getprop("ro.product.device") == "osprey_udstv" ||
-       getprop("ro.product.device") == "merlin" ||
-       getprop("ro.product.device") == "lux" ||
-       abort("This package is for device: surnia,osprey,merlin,lux; this device is " +
+assert(getprop("ro.product.device") == "Z00L" ||
+       getprop("ro.product.device") == "Z00LD" ||
+       getprop("ro.product.device") == "Z00T" ||
+       getprop("ro.product.device") == "Z00UD" ||
+       getprop("ro.product.device") == "Z00TD" ||
+       getprop("ro.product.device") == "Z00U" ||
+       getprop("ro.product.device") == "Z00UDH" ||
+       getprop("ro.product.device") == "Z00UDB" ||
+       getprop("ro.product.device") == "Z011" ||
+       getprop("ro.product.device") == "Z011D" ||
+       getprop("ro.product.device") == "Z011DD" ||
+       getprop("ro.product.device") == "Z00W" ||
+       getprop("ro.product.device") == "Z00WD" ||
+       getprop("ro.product.device") == "Z00M" ||
+       getprop("ro.product.device") == "Z00MD" ||
+       getprop("ro.product.device") == "Z00MDD" ||
+       abort("This package is for device: Zenfone 2 Laser's specific models " +
              getprop("ro.product.device") + "."););
 
 ui_print("Extracting flashing tools...");
