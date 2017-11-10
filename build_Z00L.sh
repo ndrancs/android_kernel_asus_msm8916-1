@@ -25,38 +25,33 @@ cyan='\033[0;36m'
 yellow='\033[0;33m'
 red='\033[0;31m'
 nocol='\033[0m'
-export ARCH=arm
-export SUBARCH=arm
-export CROSS_COMPILE=/home/haha/android/kernel/toolchain/uber-4.8/bin/arm-eabi-
-export KBUILD_BUILD_USER="haha"
-export KBUILD_BUILD_HOST="FireLord"
+export ARCH=arm64
+export SUBARCH=arm64
+export CROSS_COMPILE=/home/Impulse/kernel/aarch64-linux-android-4.9/bin/aarch64-linux-android-
+export KBUILD_BUILD_USER="Impulse"
+export KBUILD_BUILD_HOST="TheImpulson"
 echo -e "$cyan***********************************************"
 echo "          Compiling FireKernel kernel          "
 echo -e "***********************************************$nocol"
-rm -f arch/arm/boot/dts/*.dtb
-rm -f arch/arm/boot/dt.img
+rm -f arch/arm64/boot/dts/*.dtb
+rm -f arch/arm64/boot/dt.img
 rm -f flash_zip/boot.img
 echo -e " Initializing defconfig"
-make osprey_defconfig
+make Z00L_defconfig
 echo -e " Building kernel"
-make -j12 zImage
-make -j12 dtbs
+make -j8 zImage
+make -j8 dtbs
 
-/home/haha/android/kernel/osprey/source/tools/dtbToolCM -2 -o /home/haha/android/kernel/osprey/source/arch/arm/boot/dt.img -s 2048 -p /home/haha/android/kernel/osprey/source/scripts/dtc/ /home/haha/android/kernel/osprey/source/arch/arm/boot/dts/
+/home/Impulse/kernel/msm8916/tools/dtbToolCM -2 -o /home/Impulse/kernel/msm8916/arch/arm64/boot/dt.img -s 2048 -p /home/Impulse/kernel/msm8916/scripts/dtc/ /home/Impulse/kernel/msm8916/arch/arm64/boot/dts/
 
-make -j4 modules
 echo -e " Converting the output into a flashable zip"
-rm -rf firekernel_install
-mkdir -p firekernel_install
-make -j4 modules_install INSTALL_MOD_PATH=firekernel_install INSTALL_MOD_STRIP=1
 mkdir -p flash_zip/system/lib/modules/
-find firekernel_install/ -name '*.ko' -type f -exec cp '{}' flash_zip/system/lib/modules/ \;
 cp arch/arm/boot/zImage flash_zip/tools/
 cp arch/arm/boot/dt.img flash_zip/tools/
-rm -f /home/haha/android/kernel/osprey/upload/fire_kernel.zip
+rm -f /home/Impulse/kernel/fire_kernel.zip
 cd flash_zip
-zip -r ../arch/arm/boot/fire_kernel.zip ./
-mv /home/haha/android/kernel/osprey/source/arch/arm/boot/fire_kernel.zip /home/haha/android/kernel/osprey/upload/fire_kernel.zip
+zip -r ../arch/arm64/boot/fire_kernel.zip ./
+mv /home/Impulse/kernel/msm8916/arch/arm64/boot/fire_kernel.zip /home/Impulse/kernel/fire_kernel.zip
 BUILD_END=$(date +"%s")
 DIFF=$(($BUILD_END - $BUILD_START))
 echo -e "$yellow Build completed in $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) seconds.$nocol"
