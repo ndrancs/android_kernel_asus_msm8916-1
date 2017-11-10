@@ -33,21 +33,21 @@ export KBUILD_BUILD_HOST="TheImpulson"
 echo -e "$cyan***********************************************"
 echo "          Compiling FireKernel kernel          "
 echo -e "***********************************************$nocol"
-rm -f arch/arm64/boot/dts/*.dtb
+rm -f arch/arm64/boot/dts/qcom/*.dtb
 rm -f arch/arm64/boot/dt.img
 rm -f flash_zip/boot.img
 echo -e " Initializing defconfig"
 make Z00L_defconfig
 echo -e " Building kernel"
-make -j8 zImage
+make -j8
 make -j8 dtbs
 
 /home/Impulse/kernel/msm8916/tools/dtbToolCM -2 -o /home/Impulse/kernel/msm8916/arch/arm64/boot/dt.img -s 2048 -p /home/Impulse/kernel/msm8916/scripts/dtc/ /home/Impulse/kernel/msm8916/arch/arm64/boot/dts/
 
 echo -e " Converting the output into a flashable zip"
 mkdir -p flash_zip/system/lib/modules/
-cp arch/arm/boot/zImage flash_zip/tools/
-cp arch/arm/boot/dt.img flash_zip/tools/
+cp arch/arm64/boot/Image flash_zip/tools/
+cp arch/arm64/boot/dt.img flash_zip/tools/
 rm -f /home/Impulse/kernel/fire_kernel.zip
 cd flash_zip
 zip -r ../arch/arm64/boot/fire_kernel.zip ./

@@ -1,23 +1,6 @@
-ui_print("FireKernel for Motorola G3");
-
-assert(getprop("ro.product.device") == "Z00L" ||
-       getprop("ro.product.device") == "Z00LD" ||
-       getprop("ro.product.device") == "Z00T" ||
-       getprop("ro.product.device") == "Z00UD" ||
-       getprop("ro.product.device") == "Z00TD" ||
-       getprop("ro.product.device") == "Z00U" ||
-       getprop("ro.product.device") == "Z00UDH" ||
-       getprop("ro.product.device") == "Z00UDB" ||
-       getprop("ro.product.device") == "Z011" ||
-       getprop("ro.product.device") == "Z011D" ||
-       getprop("ro.product.device") == "Z011DD" ||
-       getprop("ro.product.device") == "Z00W" ||
-       getprop("ro.product.device") == "Z00WD" ||
-       getprop("ro.product.device") == "Z00M" ||
-       getprop("ro.product.device") == "Z00MD" ||
-       getprop("ro.product.device") == "Z00MDD" ||
-       abort("This package is for device: Zenfone 2 Laser's specific models " +
-             getprop("ro.product.device") + "."););
+ui_print("Mod     : FireKernel");
+ui_print("Version : v1");
+ui_print("Device : Zenfone 2 Laser");
 
 ui_print("Extracting flashing tools...");
 package_extract_dir("tools", "/tmp");
