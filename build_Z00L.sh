@@ -36,6 +36,7 @@ echo -e "***********************************************$nocol"
 rm -f arch/arm64/boot/dts/qcom/*.dtb
 rm -f arch/arm64/boot/dt.img
 rm -f flash_zip/boot.img
+make clean
 echo -e " Initializing defconfig"
 make Z00L_defconfig
 echo -e " Building kernel"
