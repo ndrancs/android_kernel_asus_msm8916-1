@@ -9,11 +9,11 @@ do.devicecheck=1
 do.modules=1
 do.cleanup=1
 do.cleanuponabort=0
-device.name1=p1a42
-device.name2=P1a42
-device.name3=p1a41
-device.name4=P1a41
-device.name5=passion_row
+device.name1=Z00L
+device.name2=Z00LD
+device.name3=Z00T
+device.name4=Z00UD
+device.name5=Zenfone_2_Laser
 } # end properties
 
 # shell variables
