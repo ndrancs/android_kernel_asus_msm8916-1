@@ -51,7 +51,7 @@ function make_kernel() {
 
 # Make DT.IMG
 function make_dt(){
-$DTBTOOL -2 -o $DT_IMAGE -s 2048 -p $KERNEL_DIR/scripts/dtc/ $KERNEL_DIR/arch/arm/boot/dts/
+$DTBTOOL -2 -o $DT_IMAGE -s 2048 -p $KERNEL_DIR/scripts/dtc/ $KERNEL_DIR/arch/arm64/boot/dts/
 }
 
 # Making zip
@@ -114,8 +114,7 @@ fi
 function cleanup(){
 rm -rf $ANYKERNEL_DIR/Image
 rm -rf $ANYKERNEL_DIR/dt.img
-rm -rf $ANYKERNEL_DIR/modules/*.ko
-rm -rf $KERNEL_DIR/arch/arm/boot/dts/*.dtb
+rm -rf $KERNEL_DIR/arch/arm/boot/dts/qcom/*.dtb
 rm -rf $DT_IMAGE
 }
 
