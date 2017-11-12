@@ -12,9 +12,9 @@ nocol='\033[0m'
 KERNEL_NAME="FireKernel"
 VERSION="v1"
 DATE=$(date +"%d-%m-%Y-%I-%M")
-DEVICE="Z00L"
+DEVICE="Z00T"
 FINAL_ZIP=$KERNEL_NAME-$VERSION-$DATE-$DEVICE.zip
-defconfig=Z00L_defconfig
+defconfig=Z00T_defconfig
 
 # Dirs
 KERNEL_DIR=~/kernel/msm8916
@@ -123,3 +123,4 @@ cleanup
 BUILD_END=$(date +"%s")
 DIFF=$(($BUILD_END - $BUILD_START))
 echo -e "$yellow Build completed in $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) seconds.$nocol"
+
